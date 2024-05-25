@@ -1,38 +1,851 @@
-.App {
+/* ==================================================================================== */
+/* ============================== [ Navigation Styling ] ============================== */
+/* ==================================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbarWrapper {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.navbar {
+  width: 1350px;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  color: #000;
+  position: relative;
+}
+
+.navbarLinks {
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+.navbar p {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.logOut_Btn {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-buttons .btn {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-buttons .btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.openSeller_Panel {
+  color: black;
+  cursor: pointer;
+}
+
+.openSeller_Panel:hover {
+  font-weight: 600;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+  z-index: 1000;
+  transition: transform 0.3s;
+  transform: translateX(100%);
+}
+
+.sidebar p {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar p button {
+  cursor: pointer;
+  margin: 10px 0 0 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.sidebar.open {
+  display: block;
+  transform: translateX(0);
+}
+
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.sidebar .btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .navbar-buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    display: block;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ==================================================================================== */
+/* ============================== [ Navigation Styling ] ============================== */
+/* ==================================================================================== */
+
+
+
+
+/* ==================================================================================== */
+/* ===================================== [ login ] ==================================== */
+/* ==================================================================================== */
+
+.loginContainer {
+  width: 100%;
+  height: calc(100vh - 105px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  overflow-y: auto;
+}
+
+.loginBox {
+  width: 400px;
+  max-width: 100%;
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.loginBox h1 {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 0 20px 0;
+
+  font-weight: 600;
+}
+
+.loginBox form {
+  width: 100%;
+}
+
+.formGroup {
   display: flex;
   flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+.formGroup label {
+  padding: 0 0 5px 0;
+}
+
+.formGroup input {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.formGroup input:hover,
+:active,
+:focus {
+  outline: none;
+}
+
+.formGroup span {
+  padding: 5px 0 0 0;
+  font-size: 12px;
+  color: red;
+}
+
+.loginBox_Button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+.loginBox_Button button {
+  width: 100px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.loginBox button:hover {
+  font-weight: 600;
+}
+
+.loginBox p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.registerlink {
+  text-decoration: underline;
+  color: #000;
+  padding: 0 0 0 5px;
+}
+
+/* ==================================================================================== */
+/* ===================================== [ login ] ==================================== */
+/* ==================================================================================== */
+
+
+
+
+
+
+
+/* =================================================================================== */
+/* =============================== [ Seller property ] ===============================  */
+/* =================================================================================== */
+.sellerProducts_Wrapper {
+  width: 1060px;
+  max-width: 100%;
+  margin: 30px auto 30px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sellerProduct_Header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+
+.sellerProduct_Header h1 {
+  font-size: 20px;
+}
+
+.sellerProduct_Header button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.newProperty_Form {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.newProperty_Form form {
+  width: 100%;
+}
+
+.property_formGroup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+
+.property_formGroup label {
+  width: 150px;
+  font-size: 16px;
+}
+
+.property_formGroup input {
+  width: calc(100% - 150px);
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.property_formGroup input::placeholder {
+  opacity: .6;
+}
+
+.property_formGroup textarea {
+  width: calc(100% - 150px);
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.property_formGroup textarea::placeholder {
+  opacity: .6;
+}
+
+
+
+
+
+.property_Button {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin: 0 0 20px 0;
+}
+
+.property_Button button {
+  width: 100px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.property_Button button:hover {
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  height: max-content;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  width: 100%;
+  text-align: center;
+}
+
+.card-content h2 {
+  text-align: center !important;
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-content p {
+  text-align: left !important;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.card-content p strong {
+  color: #333;
+}
+
+.card-content img {
+  width: 50px;
+  margin: 0 0 10px 0;
+}
+
+.card_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.card_buttons button {
+  width: max-content;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.delteButton {
+  background-color: red !important;
+  color: white !important;
+}
+
+/* =================================================================================== */
+/* =============================== [ Seller property ] =============================== */
+/* =================================================================================== */
+
+
+
+
+
+/* =================================================================================== */
+/* ========================== [ Seller property Edit ] =============================== */
+/* =================================================================================== */
+.propertyFormEdit {
+  width: 1060px;
+  max-width: 100%;
+  margin: 30px auto 30px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.propertyFormEdit h1 {
+  font-size: 20px;
+  margin: 0 0 40px 0;
+}
+
+.propertyFormEdit form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* =================================================================================== */
+/* ========================== [ Seller property Edit ] =============================== */
+/* =================================================================================== */
+
+
+
+
+
+/* ==================================================================================== */
+/* =============================== [ Property listing ] =============================== */
+/* ==================================================================================== */
+.propertyListWrapper {
+  width: 1300px;
+  max-width: 100%;
+
+  max-width: 100%;
+  margin: 30px auto 30px auto;
+  padding: 0px 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.filtersSectionWrapper {
+  width: 220px !important;
+  padding: 30px 20px 30px 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.filtersSectionWrapper h1 {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.filtersSectionWrapper form {
+  margin: 30px 0 0 0;
+}
+
+.filter_formGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+.filter_formGroup label {
+  margin: 0 0 5px 0;
+}
+
+.filter_formGroup input {
+  padding: 7px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.filter_formGroup_button {
+  width: 100%;
+  text-align: right;
+}
+
+.filter_formGroup_button span {
+  width: 100px !important;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  margin: 0 0 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.filter_formGroup_button span:hover {
+  font-weight: 600;
+}
+
+.filter_formGroup_button button {
+  width: 100px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  margin: 0 0 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.filter_formGroup_button button:hover {
+  font-weight: 600;
+}
+
+.propertListContainer {
+  width: calc(100% - 235px);
+  padding: 30px 0;
+}
+
+.containerHeading {
+  width: 100%;
+  margin: 0 0 30px 0;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerHeading h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pagginationButtons button {
+  background-color: transparent;
+  border: 0;
+  padding: 5px 7px;
+  font-size: 16px;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagginationButtons button:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.pagginationButtons span {
+  padding: 0 10px;
+}
+
+
+.home_card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  height: calc(100vh - 290px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+
+.nodataFound {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 0 0;
+  font-size: 20px;
+}
+
+.likeUnlike_Button {
+  margin: 0 !important;
+  background-color: transparent;
+}
+
+.likeUnlike_Button:hover {
+  color: white;
+  font-weight: 600;
+  background-color: rgb(0, 110, 255);
+}
+
+.inquireButton {
+  background-color: transparent;
+}
+
+.inquireButton:hover {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.updatingError {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0 0 0;
+  font-size: 20px;
+}
+
+
+
+.customEnqurie_Modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  backdrop-filter: blur(3px);
+  z-index: 1000;
 }
 
-.App-link {
-  color: #61dafb;
+.modalDetailBox {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 450px;
+  max-width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
+.modalCrossIcon {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.modalCrossIcon button {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.modalContent h1 {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+}
+
+.modalContent p {
+  margin: 5px 0;
+}
+
+.modalContent strong {
+  font-weight: 600;
+}
+
+.modalContent span {
+  text-transform: capitalize;
+}
+
+.zeroSellerProperty {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+  font-size: 20px;
+}
+
+/* ==================================================================================== */
+/* =============================== [ Property listing ] =============================== */
+/* ==================================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+/* styles.css */
+/* Chrome, Safari, Edge, Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+
+.loaderContianer {
+  width: 100%;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid grey;
+  width: 70px;
+  margin: 0 auto;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }
