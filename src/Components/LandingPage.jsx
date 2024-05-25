@@ -193,7 +193,7 @@ function LandingPage() {
             setlikeUnlikeArr(prevState => prevState.filter(item => item !== productid));
 
             // remove from database
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}buyeraction/unlike`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}buyeraction/dislike`, {
                 buyer_ID: buyerID,
                 property_ID: productid,
             });
@@ -320,7 +320,7 @@ function LandingPage() {
                                                                 {
                                                                     likeUnlikeArr.includes(item._id)
                                                                         ?
-                                                                        <button className='likeUnlike_Button' onClick={() => { handle_LikeUnlike('unlike', user._id, item._id) }}>Un-Like</button>
+                                                                        <button className='likeUnlike_Button' onClick={() => { handle_LikeUnlike('unlike', user._id, item._id) }}>Dislike</button>
                                                                         :
                                                                         <button className='likeUnlike_Button' onClick={() => { handle_LikeUnlike('like', user._id, item._id) }}>Like</button>
                                                                 }
